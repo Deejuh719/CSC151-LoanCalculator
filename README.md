@@ -18,13 +18,13 @@ Repo for group project of loan calculator final project
 ---
 
 ```bash
-git clone https://github.com/andrew-morales/CSC151-LoanCalculator.git
+git clone https://github.com/deejuh719/CSC151-LoanCalculator.git
 ```
 
 **Via GitHub Desktop**
 ---
 
-- Download the repo from https://github.com/andrew-morales/CSC151-LoanCalculator
+- Download the repo from https://github.com/deejuh719/CSC151-LoanCalculator
 - Open the repo in GitHub Desktop
 
 ## How to add new code/features
@@ -33,13 +33,14 @@ git clone https://github.com/andrew-morales/CSC151-LoanCalculator.git
 ---
 
 ```bash
-git branch ``feature-name``` -c
+git branch `feature-name` -c
 git add .
 git commit -m "commit message"
-git push origin ``feature-name``
+git push origin `feature-name`
 ```
 
-Wait for pull request to be merged or rejected based on code quality and functionality
+- Give your feature a name that describes what it does/is supposed to do (doesn't have to be long, just descriptive enough)
+- Wait for pull request to be merged or rejected based on code quality and functionality
 
 **Via GitHub Desktop**
 ---
