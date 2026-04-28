@@ -57,9 +57,51 @@ public class TestLoanClass {
 
 		while (myLoanAmount >= myMonthlyPayment) {
 			// to do A1 same as A2
+			System.err.printf("Month: %d, Interest paid: $%.2f, Principal paid: $%.2f, Remaining Loan amount: $%.2f%n", 
+			month, interest, principal, myLoanAmount);
+			if(extraPay > 0) {
+                for(month = 1; month < 2; month++) {
+                    interest = myLoanAmount * myMonthlyInterestRate;
+                    principal = myMonthlyPayment - interest;
+                    totalPayment = principal + extraPay;
+                    myLoanAmount = myLoanAmount - totalPayment;
+                    totalInterest = totalInterest + interest;
+                    System.out.printf("Month %d: Interest paid $%.2f, Principal paid $%.2f, Remaining loan amount $%.2f%n",
+                        month, interest, principal, myLoanAmount);
+                }
+                do {
+                    interest = myLoanAmount * myMonthlyInterestRate;
+                    principal = myMonthlyPayment - interest;
+                    myLoanAmount = myLoanAmount - principal;
+                    totalInterest = totalInterest + interest;
+                    System.out.printf("Month %d: Interest paid $%.2f, Principal paid $%.2f, Remaining loan amount $%.2f%n",
+                        month, interest, principal, myLoanAmount);
+					month++;
+				} while (month < l.getNumberOfYears() * 12);
+            } else {
+                for (month = 1; month < l.getNumberOfYears() * 12; month++) {
+					System.err.printf("Current loan amount $%.2f is greater than or equal to monthly payment $%.2f%n", myLoanAmount, myMonthlyPayment);
+                    interest = myLoanAmount * myMonthlyInterestRate;
+                    principal = myMonthlyPayment - interest;
+                    myLoanAmount = myLoanAmount - principal;
+                    totalInterest = totalInterest + interest;
+                    System.out.printf("Month %d: Interest paid $%.2f, Principal paid $%.2f, Remaining loan amount $%.2f%n",
+                        month, interest, principal, myLoanAmount);
+				}
+				System.out.printf("Month %d: Interest paid $%.2f, Principal paid $%.2f, Remaining loan amount $%.2f%n",
+					month, interest, principal, myLoanAmount);
+            }
 		}
 		if (myLoanAmount < myMonthlyPayment) {
 			// to do B1 same as B2
+			interest = myLoanAmount * myMonthlyInterestRate;
+			principal = myMonthlyPayment - interest;
+			myLoanAmount = myLoanAmount - myLoanAmount;
+			totalInterest = totalInterest + interest;
+			System.out.printf("Month %d: Interest paid $%.2f, Principal paid $%.2f, Remaining loan amount $%.2f%n",
+				month, interest, principal, myLoanAmount);
+			System.out.printf("Interest = $%.2f * %.2f = $%.2f%n", myLoanAmount, myMonthlyInterestRate, interest);
+			System.out.printf("Principal = $%.2f%n", principal);
 		}
 		double interestSaved = l.getTotalInterest() - totalInterest;
 
