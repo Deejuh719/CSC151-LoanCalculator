@@ -99,14 +99,6 @@ public class TestLoanClass {
 
 	/** Extra payment every month */
 	public static void extraPayEveryMonth(Loan l, double extraPay) {
-		/* 
-		 * =================================================
-		 * Don't merge with master branch yet.
-		 * Technically done, but could be improved.
-		 * Need to ask professor something first, though.
-		 * =================================================
-		 * 
-		 */
 		System.out.printf("Extra payment every month $%.2f%n", extraPay);
 		double myLoanAmount = l.getLoanAmount();
 		double myMonthlyInterestRate = l.getAnnualInterestRate() / 1200;
