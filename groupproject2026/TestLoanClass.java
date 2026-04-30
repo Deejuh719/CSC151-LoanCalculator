@@ -49,7 +49,7 @@ public class TestLoanClass {
 		double myLoanAmount = l.getLoanAmount();
 		double myMonthlyInterestRate = l.getAnnualInterestRate() / 1200;
 		double myMonthlyPayment = l.getMonthlyPayment();
-		int month = 0;
+		int month = 1;
 		double interest = 0.0;
 		double principal = 0.0;
 		double totalInterest = 0.0;
@@ -57,9 +57,37 @@ public class TestLoanClass {
 
 		while (myLoanAmount >= myMonthlyPayment) {
 			// to do A1 same as A2
-		}
-		if (myLoanAmount < myMonthlyPayment) {
-			// to do B1 same as B2
+			if(extraPay > 0) {
+                for(month = 1; month < 2; month++) {
+                    interest = myLoanAmount * myMonthlyInterestRate;
+                    principal = myMonthlyPayment - interest;
+                    totalPayment = principal + extraPay;
+                    myLoanAmount = myLoanAmount - totalPayment;
+                    totalInterest = totalInterest + interest;
+                }
+                do {
+                    interest = myLoanAmount * myMonthlyInterestRate;
+                    principal = myMonthlyPayment - interest;
+                    myLoanAmount = myLoanAmount - principal;
+                    totalInterest = totalInterest + interest;
+					month++;
+				} while (month < l.getNumberOfYears() * 12 && myLoanAmount >= myMonthlyPayment);
+            } else {
+                do {
+                    interest = myLoanAmount * myMonthlyInterestRate;
+                    principal = myMonthlyPayment - interest;
+                    myLoanAmount = myLoanAmount - principal;
+                    totalInterest = totalInterest + interest;
+					month++;
+				} while (month < l.getNumberOfYears() * 12 && myLoanAmount >= myMonthlyPayment);
+            }
+			if (myLoanAmount < myMonthlyPayment) {
+				// to do B1 same as B2
+				interest = myLoanAmount * myMonthlyInterestRate;
+				principal = myMonthlyPayment - interest;
+				myLoanAmount = myLoanAmount - myLoanAmount;
+				totalInterest = totalInterest + interest;
+			}
 		}
 		double interestSaved = l.getTotalInterest() - totalInterest;
 
