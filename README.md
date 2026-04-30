@@ -55,3 +55,9 @@ git push origin `feature-name`
 - Please make sure to branch your code as to not affect the main branch
 - Ensure your commits are clear and descriptive as well
 - Create push requests for review each time you make changes
+
+## To close out an issue in your pull request:
+
+- Type your explanation of what is happening in the code then underneath on a new line type "Closes #_" with the number of the issue in the blank
+- **Do not do this for the screenshots until all code is run and submitted**
+- Once push is accepted, it will move the issue to done on the kanban board (for those of you working on the same section of code, you don't have to do this, since they are somewhat one issue)
