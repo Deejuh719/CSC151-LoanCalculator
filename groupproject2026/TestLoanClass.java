@@ -62,22 +62,22 @@ public class TestLoanClass {
                     interest = myLoanAmount * myMonthlyInterestRate;
                     principal = myMonthlyPayment - interest;
                     totalPayment = principal + extraPay;
-                    myLoanAmount = myLoanAmount - totalPayment;
-                    totalInterest = totalInterest + interest;
+                    myLoanAmount -= totalPayment;
+                    totalInterest += interest;
                 }
                 do {
                     interest = myLoanAmount * myMonthlyInterestRate;
                     principal = myMonthlyPayment - interest;
-                    myLoanAmount = myLoanAmount - principal;
-                    totalInterest = totalInterest + interest;
+                    myLoanAmount -= principal;
+                    totalInterest += interest;
 					month++;
 				} while (month < l.getNumberOfYears() * 12 && myLoanAmount >= myMonthlyPayment);
             } else {
                 do {
                     interest = myLoanAmount * myMonthlyInterestRate;
                     principal = myMonthlyPayment - interest;
-                    myLoanAmount = myLoanAmount - principal;
-                    totalInterest = totalInterest + interest;
+                    myLoanAmount -= principal;
+                    totalInterest += interest;
 					month++;
 				} while (month < l.getNumberOfYears() * 12 && myLoanAmount >= myMonthlyPayment);
             }
@@ -85,8 +85,8 @@ public class TestLoanClass {
 				// to do B1 same as B2
 				interest = myLoanAmount * myMonthlyInterestRate;
 				principal = myMonthlyPayment - interest;
-				myLoanAmount = myLoanAmount - myLoanAmount;
-				totalInterest = totalInterest + interest;
+				myLoanAmount -= myLoanAmount;
+				totalInterest += interest;
 			}
 		}
 		double interestSaved = l.getTotalInterest() - totalInterest;
